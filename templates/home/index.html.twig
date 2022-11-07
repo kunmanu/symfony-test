@@ -5,9 +5,14 @@
     {{ parent() }}
 
     <!-- Homepage styles -->
-    <link href="/css/home.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="js/homeScript.js"></script>
+{% endblock %}
 {% block body %}
 
     <h1>Accueil</h1>
@@ -25,8 +30,6 @@
 
     {% endfor %}
 
-    {% block javascripts %}
-        <script src="js/homeScript.js"></script>
-    {% endblock %}
 
 {% endblock %}
+

@@ -11,7 +11,8 @@
 
 
             <!-- Custom styles for this template -->
-            <link href="/css/blog.css" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('css/blog.css') }}">
+
         {% endblock %}
 
         {% block javascripts %}
@@ -21,7 +22,9 @@
         {% endblock %}
     </head>
     <body>
+        {{ include('inc/_nav.html.twig') }}
         {% block body %}
         {% endblock %}
+
     </body>
 </html>
