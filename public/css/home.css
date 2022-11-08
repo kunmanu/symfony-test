@@ -1,12 +1,22 @@
 body{
     margin: 25px ;
 }
+main{
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+.post-content-text{
+    width: 750px;
+}
 
 
 .post-content{
     margin-top: 10px;
 }
 
-.post-img{
+.post-content-img{
     border-radius: 50px;
+    height: 100%;
 }
