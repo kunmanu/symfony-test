@@ -46,7 +46,8 @@ final class PostFactory extends ModelFactory
             'content' => self::faker()->text(),
             'image' => 'https://picsum.photos/seed/post-' . rand(0,500) . '/750/300',
             'author' => self::faker()->name(),
-            'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime())
+            'createdAt' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
+            'category' =>  CategoryFactory::random()
 
         ];
     }
@@ -65,6 +66,8 @@ final class PostFactory extends ModelFactory
 
                  // On enregistre ce slug dans le champ slug
                  $post->setSlug($slug);
+
+
 
 
              })
