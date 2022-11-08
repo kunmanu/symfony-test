@@ -28,7 +28,7 @@
             <img class="post-content-img" src="{{ post.image }}" alt="{{ post.title }}">
             <p class="post-content-text" >{{ post.content| slice(0,150) }}</p>
          </div>
-        <a class="post-more" href="#">Lire la suite</a>
+        <a class="post-more" href="{{ path('post.index', {'slug':post.slug}) }}">Lire la suite</a>
         </div>
     {% endfor %}
     </main>
