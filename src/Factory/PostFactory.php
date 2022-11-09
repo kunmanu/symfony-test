@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use App\Entity\Comment;
 use App\Entity\Post;
 use App\Repository\PostRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -70,7 +71,8 @@ final class PostFactory extends ModelFactory
 
 
 
-             })
+
+                 })
         ;
     }
 
