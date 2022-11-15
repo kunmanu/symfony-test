@@ -14,6 +14,11 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         // Instanciation de PostFactory en appelant la méthode statique new()
+
+        UserFactory::new()->create([
+            'roles' => ['ROLE_ADMIN'],
+            'email' => 'admin@gmail.com']);
+
         UserFactory::new()->createMany(10);
         UserFactory::createOne(['email' => 'user@mail.com']);
         CategoryFactory::new()->createMany(5);

@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserType extends AbstractType
 {
@@ -17,23 +19,43 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email',EmailType::class,[
-                'label' => 'Votre Email'
+                'label' => 'Votre Email',
+                'constraints' => [
+                    new NotBlank()
+                ]
+
             ])
-//            ->add('roles')
-//            ->add('hash')
+
             ->add('firstname', TextType::class, [
-                'label' => 'Votre Nom'
+                'label' => 'Votre Nom',
+                'constraints' => [
+                    new NotBlank()
+                ]
             ])
-            ->add('lastname', TextType::class)
-//            ->add('createdAt')
+            ->add('lastname', TextType::class, [
+                'label' => 'Votre Nom',
+                'constraints' => [
+                    new NotBlank()
+                ]
+            ])
+
+
+
+
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'invalid_message' => 'La confirmation du mot de passe ne correspond pas',
                 'required' => true,
                 'first_options'  => ['label' => 'Mot de passe'],
-                'second_options' => ['label' => 'Mot de passe (confirmation)']
-            ])
+                'second_options' => ['label' => 'Mot de passe (confirmation)'],
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 8,
+                        'minMessage' => 'Le mot de passe doit comporter au moins {{ limit }} caractères.'
+                    ])
+            ]])
         ;
     }
 

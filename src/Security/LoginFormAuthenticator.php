@@ -57,8 +57,10 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+        $route = $token->getUser()->hasRole('ROLE_ADMIN') ? 'admin.index' : 'home.index';
+
         // For example:
-         return new RedirectResponse($this->urlGenerator->generate('home.index'));
+         return new RedirectResponse($this->urlGenerator->generate($route));
 //        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
@@ -66,4 +68,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
+
+
+
 }

@@ -1,0 +1,10 @@
+{% extends 'admin/base.admin.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% include 'admin/parts/_post.html.twig' %}
+{% endblock %}
