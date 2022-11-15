@@ -40,7 +40,7 @@ final class CommentFactory extends ModelFactory
     {
         return [
             // TODO add your default values here (https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories)
-            'user' => self::faker()->name(),
+            'user' => UserFactory::random(),
             'content' => self::faker()->text(250),
             'createdAt' => new \DateTimeImmutable(),
             'post' => PostFactory::random()
