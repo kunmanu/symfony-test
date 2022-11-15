@@ -28,6 +28,7 @@ class  PostController extends AbstractController
 //            dd($form->getData());
             $comment = $form->getData();
             $comment->setPost($post);
+            $comment->setUser($this->getUser());
             $manager->persist($comment);
             $manager->flush();
             $this->addFlash('success', 'Votre commentaire est créé avec succès.');
